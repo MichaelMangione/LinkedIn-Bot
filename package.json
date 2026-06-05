@@ -1,0 +1,30 @@
+{
+  "name": "linkedin-bot",
+  "version": "1.1.0",
+  "description": "LinkedIn group automation bot — single account, v1.1.0",
+  "main": "src/daemon.js",
+  "scripts": {
+    "start": "node src/daemon.js",
+    "cycle": "node scripts/run-one-cycle.js",
+    "verify": "node src/verify.js",
+    "audit-groups": "node scripts/audit-groups.js",
+    "test-sheet": "node scripts/test-sheet.js",
+    "engage-only": "ENGAGE_ONLY=true node scripts/run-one-cycle.js",
+    "post-only": "POST_ONLY=true node scripts/run-one-cycle.js",
+    "sync-profile": "bash scripts/sync-profile.sh",
+    "reset-today": "node scripts/reset-daily-counters.js",
+    "reset-fresh": "node scripts/reset-fresh.js",
+    "reset-deploy": "CLEAR_ALL_STATE=true node scripts/reset-fresh.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tech638/linkedIn-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "googleapis": "^172.0.0",
+    "puppeteer-core": "^25.0.4"
+  }
+}

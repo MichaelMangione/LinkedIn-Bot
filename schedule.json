@@ -1,0 +1,30 @@
+{
+  "scheduling": {
+    "cyclesPerDay": 5,
+    "activeHoursStart": 8,
+    "activeHoursEnd": 20,
+    "interCycleDelayMinMs": 7200000,
+    "interCycleDelayMaxMs": 10800000,
+    "enabled": true
+  },
+  "engagement": {
+    "enabled": true,
+    "likesPerGroup": 3,
+    "commentsPerGroup": 2,
+    "cooldownMs": 1200000,
+    "cooldownJitterPct": 10
+  },
+  "limits": {
+    "maxDailyLikes": 30,
+    "maxDailyComments": 15,
+    "maxDailyPosts": 5,
+    "accountAgeMultiplier": 1.0
+  },
+  "verification": {
+    "enabled": true,
+    "checkAfterHours": 24,
+    "removeLowQualityGroups": true,
+    "qualityScoreFloor": 0
+  },
+  "groups": []
+}

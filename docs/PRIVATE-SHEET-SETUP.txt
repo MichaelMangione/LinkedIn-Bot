@@ -1,0 +1,44 @@
+READ A PRIVATE GOOGLE SHEET (no public sharing)
+=============================================
+
+1. Google Cloud project
+   - Go to https://console.cloud.google.com/
+   - Create a project (or pick an existing one)
+
+2. Enable Google Sheets API
+   - APIs & Services → Library
+   - Search "Google Sheets API" → Enable
+
+3. Create a service account
+   - APIs & Services → Credentials
+   - Create credentials → Service account
+   - Name it e.g. "linkedin-bot" → Create → Done
+   - Click the service account → Keys → Add key → Create new key → JSON
+   - Save the downloaded file as:
+       linkedIn-bot/credentials.json
+
+4. Share YOUR sheet with the bot (keeps sheet private)
+   - Open credentials.json and copy "client_email" (looks like:
+       something@your-project.iam.gserviceaccount.com)
+   - Open your Google Sheet → Share
+   - Paste that email → Role: Viewer (or Editor) → Send / Share
+   - Do NOT use "Anyone with the link" — only this email needs access
+
+5. Configure .env
+   GOOGLE_SHEET_ID=1Hu_jdGKNbkfIeuL6aNyHaHC4mt-Sbu90SliU1NunbN8
+   GOOGLE_APPLICATION_CREDENTIALS=./credentials.json
+   GOOGLE_SHEET_RANGE=Sheet1
+
+   If your tab name is not "Sheet1", use the exact tab name at the bottom
+   of the spreadsheet (e.g. GOOGLE_SHEET_RANGE=Posts).
+
+6. Test
+   node scripts/print-service-account-email.js
+   node scripts/test-sheet.js
+
+7. Run bot
+   node index.js
+
+SECURITY
+- Never commit credentials.json (it is in .gitignore)
+- Never share credentials.json publicly
